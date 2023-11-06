@@ -70,26 +70,6 @@ async function run() {
         console.log(error);
       }
     });
-    // delete images
-    // app.delete("/delete_gallery_images", async (req, res) => {
-    //   try {
-    //     // const filter = { isChecked: true };
-    //     console.log(filter); // { isChecked: true }
-    //     const result = await galleryCollection.deleteMany(filter);
-    //     console.log(result); // { acknowledged: true, deletedCount: 0 }
-    //     if (result.deletedCount > 0) {
-    //       res.send({
-    //         result: result,
-    //         massage: ` ${result.deletedCount} Files deleted successfully.`,
-    //       });
-    //     } else {
-    //       res.send("No Files deleted.");
-    //     }
-    //   } catch (error) {
-    //     console.log(error);
-    //     res.status(500).send("Error deleting Files.");
-    //   }
-    // });
 
     app.delete("/delete_gallery_images", async (req, res) => {
       try {
@@ -98,7 +78,7 @@ async function run() {
         if (!selectedImageIds || !Array.isArray(selectedImageIds) || selectedImageIds.length === 0) {
           return res.status(400).json({ message: "Invalid or empty selection" });
         }
-        
+
         const collection = client.db("photopicAdmin").collection("galleryImages");
     
         // Convert the array of object IDs to MongoDB ObjectID instances
@@ -128,7 +108,6 @@ async function run() {
       "Pinged your deployment. You successfully connected to MongoDB!"
     );
   } finally {
-    // Ensures that the client will close when you finish/error
     // await client.close();
   }
 }
