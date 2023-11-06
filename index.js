@@ -73,6 +73,8 @@ async function run() {
       }
     });
 
+
+    // For Delete Images
     app.delete("/delete_gallery_images", async (req, res) => {
       try {
         const selectedImageIds = req.body;
