@@ -46,7 +46,9 @@ async function run() {
         console.log(error);
       }
     });
-    // checked
+
+
+    // checked key point updated
     app.patch("/update_single_image/:id", async (req, res) => {
       try {
         const id = req.params.id;
